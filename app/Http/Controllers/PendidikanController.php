@@ -24,6 +24,21 @@ class PendidikanController extends Controller
     }
     public function store(Request $request)
     {
+        // abort(500);
+        $messages = [
+            'required' => 'Kolom wajib diisi!',
+            'max' => 'Kolom wajib diisi maksimal :max karakter!',
+            'min' => 'Kolom wajib diisi minimal :min karakter!',
+            'alpha' => 'Kolom hanya boleh diisi huruf!',
+            'numeric' => 'Kolom hanya boleh diisi angka!',
+        ];
+
+        $this->validate($request, [
+            'nama'=> 'required|alpha',
+            'tingkatan'=> 'required',
+            'tahun_masuk'=> 'required|min:1|numeric',
+            'tahun_keluar'=> 'required|min:1|numeric',
+        ], $messages);
         Pendidikan::create($request->all());
 
         return redirect()->route('pendidikan.index')->with('success','Data pendidikan baru telah berhasil disimpan.');

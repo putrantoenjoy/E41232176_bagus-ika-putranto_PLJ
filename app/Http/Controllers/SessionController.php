@@ -22,4 +22,8 @@ class SessionController extends Controller
         $request->session()->forget("nama");
         echo "Data telah dihapus dari session";
     }
+    public function servererror(){
+        
+        abort(500);
+    }
 }
