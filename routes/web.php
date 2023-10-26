@@ -3,6 +3,7 @@
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PendidikanController;
 use App\Http\Controllers\PengalamanKerjaController;
+use App\Http\Controllers\SessionController;
 use App\Http\Middleware\CheckAge;
 use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
@@ -29,6 +30,10 @@ Route::group(['middleware' => ['auth']], function(){
     Route::resource('pengalamankerja', PengalamanKerjaController::class);
     Route::resource('pendidikan', PendidikanController::class);
 });
+
+Route::get('session/create', [SessionController::class, 'create'])->name('session.index');
+
+
 // Route::resource('/pengalamankerja', PengalamanKerjaController::class);
 
 // Route::resource('user/profile', 'UserProfileController');
