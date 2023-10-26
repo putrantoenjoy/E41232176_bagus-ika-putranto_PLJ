@@ -11,4 +11,12 @@ class SessionController extends Controller
         $request->session()->put("nama", "politeknik negeri jember");
         echo "Data telah ditambahkan ke session";
     }
+    public function show(Request $request){
+        if($request->session()->has("nama")){
+            echo $request->session()->get("nama");
+        } else {
+            echo"Tidak ada data dalam session";
+        }
+    }
+    
 }

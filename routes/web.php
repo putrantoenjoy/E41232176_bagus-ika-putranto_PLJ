@@ -31,7 +31,8 @@ Route::group(['middleware' => ['auth']], function(){
     Route::resource('pendidikan', PendidikanController::class);
 });
 
-Route::get('session/create', [SessionController::class, 'create'])->name('session.index');
+Route::get('session/create', [SessionController::class, 'create'])->name('session.create');
+Route::get('session/show', [SessionController::class, 'show'])->name('session.show');
 
 
 // Route::resource('/pengalamankerja', PengalamanKerjaController::class);
