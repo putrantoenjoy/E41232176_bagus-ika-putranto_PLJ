@@ -18,5 +18,8 @@ class SessionController extends Controller
             echo"Tidak ada data dalam session";
         }
     }
-    
+    public function delete(Request $request){
+        $request->session()->forget("nama");
+        echo "Data telah dihapus dari session";
+    }
 }

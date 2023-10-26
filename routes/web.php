@@ -33,6 +33,7 @@ Route::group(['middleware' => ['auth']], function(){
 
 Route::get('session/create', [SessionController::class, 'create'])->name('session.create');
 Route::get('session/show', [SessionController::class, 'show'])->name('session.show');
+Route::get('session/delete', [SessionController::class, 'delete'])->name('session.delete');
 
 
 // Route::resource('/pengalamankerja', PengalamanKerjaController::class);
