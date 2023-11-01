@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ApiPendidikanController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -16,4 +17,17 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::group(['middleware'=> 'auth'], function () {
+    Route::get('api_pendidikan',[ApiPendidikanController::class,'getAll']);
+    Route::get('api_pendidikan/{id}',[ApiPendidikanController::class,'getPen']);
+    Route::post('api_pendidikan',[ApiPendidikanController::class,'createPen']);
+    Route::put('api_pendidikan/{id}',[ApiPendidikanController::class,'updatePen']);
+    Route::delete('api_pendidikan/{id}',[ApiPendidikanController::class,'deletePen']);
+    // Route::get('api_pendidikan','ApiPendidikanController@getAll');
+    // Route::get('api_pendidikan','ApiPendidikanController@getPen');
+    // Route::post('api_pendidikan/','ApiPendidikanController@createPen');
+    // Route::put('api_pendidikan/{id}','ApiPendidikanController@updatePen');
+    // Route::delete('api_pendidikan/{id}','ApiPendidikanController@deletePen');
 });
