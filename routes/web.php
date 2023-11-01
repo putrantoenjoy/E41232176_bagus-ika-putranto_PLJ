@@ -22,14 +22,14 @@ use App\Http\Controllers\UserProfileController;
 |
 */
 
-Route::group(['middleware' => ['auth']], function(){
+// Route::group(['middleware' => ['auth']], function(){
     Route::get('/', function () {
         return view('welcome');
     });
     Route::resource('dashboard', DashboardController::class);
     Route::resource('pengalamankerja', PengalamanKerjaController::class);
     Route::resource('pendidikan', PendidikanController::class);
-});
+// });
 
 Route::get('session/create', [SessionController::class, 'create'])->name('session.create');
 Route::get('session/show', [SessionController::class, 'show'])->name('session.show');
